@@ -1,0 +1,17 @@
+A quick and dirty library to generate .Net property type checking and validation for a Backbone model.
+
+This works by generating a Javascript base class from a .Net object, including the type definition
+and the validation (set via attributes in the System.Data.Annotations namespace). These will be
+accessible from the set() method, saving a bit of time doing manual value parsing and validation
+in the Backbone model when the type information and validation is already defined in .Net.
+
+It's fairly generic, but currently only supports Backbone models and isn't set up for integration in
+a build process (we use a Powershell script to generate the JS files.)
+
+Example usage:
+
+            var _options = new GeneratorOptions();
+            var _options.OutputFile = "C:\\temp\\test.js";
+            var _generator = new Generator(_options);
+            _generator.AddFilter(typeof(MyObject).Assembly, new Regex(typeof(MyOjbect).Namespace));
+            _generator.Generate();
