@@ -140,6 +140,7 @@
 
 
     this.BackSupport.Parse = this.BackSupport.Parse = this.BackSupport.Parse || {};
+    this.BackSupport.Parse.Type = this.BackSupport.Parse.Type = this.BackSupport.Parse.Type || {};
     this.BackSupport.Parse.Type.String = function (val) {
         if (typeof (val) == 'object')
             return null;
